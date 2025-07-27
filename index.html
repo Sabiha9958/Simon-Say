@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simon Says Game - Enhanced</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Simon Says 🎮</h1>
+      <button id="open-settings" aria-label="Open settings">⚙️</button>
+    </header>
+
+    <main>
+      <section id="score-section" aria-live="polite" aria-atomic="true">
+        <span id="current-level">Level: 1</span>
+        <span id="best-score">Best: 0</span>
+      </section>
+
+      <section
+        id="game-board"
+        aria-label="Simon game board"
+        role="region"
+        tabindex="0"
+      >
+        <!-- pads created by JS -->
+      </section>
+
+      <section id="message" aria-live="assertive" aria-atomic="true"></section>
+    </main>
+
+    <aside
+      id="settings-panel"
+      aria-label="Game settings"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      tabindex="-1"
+    >
+      <button id="close-settings" aria-label="Close settings">✖️</button>
+
+      <h2>Settings</h2>
+
+      <label for="theme-select">Theme:</label>
+      <select id="theme-select" aria-describedby="theme-desc">
+        <option value="default">Default</option>
+        <option value="classic">Classic</option>
+        <option value="neon">Neon</option>
+        <option value="nature">Nature</option>
+        <option value="space">Space</option>
+        <option value="candy">Candy</option>
+      </select>
+      <div id="theme-desc" class="sr-only">Select visual theme</div>
+
+      <label for="difficulty-select">Difficulty:</label>
+      <select id="difficulty-select" aria-describedby="difficulty-desc">
+        <option value="easy">Easy</option>
+        <option value="medium" selected>Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+      <div id="difficulty-desc" class="sr-only">
+        Select game difficulty level
+      </div>
+
+      <label for="volume-slider">Audio Volume:</label>
+      <input
+        type="range"
+        id="volume-slider"
+        min="0"
+        max="100"
+        value="80"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="80"
+      />
+
+      <label for="speed-slider"
+        >Sequence Speed (ms): <span id="speed-value">700</span></label
+      >
+      <input
+        type="range"
+        id="speed-slider"
+        min="300"
+        max="1200"
+        step="50"
+        value="700"
+        aria-valuemin="300"
+        aria-valuemax="1200"
+        aria-valuenow="700"
+      />
+    </aside>
+
+    <div id="settings-overlay" tabindex="-1"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
